@@ -41,8 +41,3 @@ jobs:
         with:
           branch: gh-pages
           folder: dist
-
-      # Останавливаем выполнение строго при неудачных тестах
-      - name: Fail on failed tests
-        run: |
-          if [ ${{ job.status }} == 'failure' ]; then exit 1; fi;
