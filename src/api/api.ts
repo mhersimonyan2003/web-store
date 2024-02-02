@@ -3,6 +3,9 @@ import { API_URL } from '@/constants';
 
 export const apiAuth = axios.create({
   baseURL: API_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
 apiAuth.interceptors.request.use(
