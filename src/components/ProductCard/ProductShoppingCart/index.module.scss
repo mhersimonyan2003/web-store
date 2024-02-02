@@ -1,0 +1,15 @@
+.product-shopping-cart {
+  flex: 1;
+  height: 40px;
+
+  & > button {
+    width: 100%;
+    gap: 4px;
+  }
+}
+
+.product-shopping-cart__controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

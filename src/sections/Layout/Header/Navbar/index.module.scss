@@ -1,0 +1,17 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 0 12px 0 60px;
+}
+
+.navbar__item {
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.87);
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 0, 0, 0.4);
+}

@@ -1,0 +1,100 @@
+.product__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: #f7f7f7;
+  }
+}
+
+.product__card__photo {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  object-position: center;
+  margin: 0 auto;
+}
+
+.product__card__price {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 8px;
+}
+
+.product__card__price-current {
+  white-space: nowrap;
+  color: #f81155;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  line-height: 20px;
+}
+
+.product__card__price-old {
+  white-space: nowrap;
+  position: relative;
+  margin: 0 4px;
+  color: #99a3ae;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  line-height: 18px;
+
+  &::before {
+    background: #99a3ae;
+    content: '';
+    display: block;
+    height: 1px;
+    left: 0;
+    position: absolute;
+    top: 50%;
+    transform: rotate(-3deg);
+    width: 100%;
+  }
+}
+
+.product__card__price-discount {
+  color: #f91155;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  line-height: 18px;
+}
+
+.product__card__header {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4px;
+  line-height: 18px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.product__card__name {
+  color: #070707;
+  font-size: 14px;
+}
+
+.product__card__category {
+  color: #03a9f4;
+  font-size: 12px;
+}
+
+.product__card__description {
+  margin-top: 4px;
+  color: #212121;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.14px;
+  line-height: 16px;
+}
+
+.product__card__buttons {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  margin-top: 12px;
+}

@@ -1,0 +1,31 @@
+.select-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.select__label {
+  font-weight: bold;
+}
+
+.select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+
+  &:focus {
+    border-color: #007bff; /* Change border color on focus */
+  }
+
+  &.error {
+    border-color: #e74c3c; /* Change border color for invalid state */
+  }
+}
+
+.select_error {
+  color: #e74c3c;
+  margin-top: 8px;
+}

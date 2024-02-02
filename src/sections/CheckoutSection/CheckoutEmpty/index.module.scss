@@ -1,0 +1,10 @@
+.checkout-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.checkout-empty__icon {
+  width: 125px;
+}
