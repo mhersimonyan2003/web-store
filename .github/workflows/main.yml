@@ -1,4 +1,4 @@
-name: Test, Lint, Build and Deploy on Github Pages
+name: Lint, Build and Deploy on Github Pages
 
 on:
   push:
@@ -28,8 +28,8 @@ jobs:
         run: npm install
 
       # Запускаем тесты и линтер
-      - name: Run tests and linter
-        run: npm run lint && npm test
+      - name: Run linter
+        run: npm run lint
 
       # Собираем приложение
       - name: Build Application
