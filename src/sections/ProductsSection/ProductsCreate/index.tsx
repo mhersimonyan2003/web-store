@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useAppSelector } from '@/store';
+import { tokenSelectors } from '@/store/token';
 import { ProductForm } from '@/components';
 import { Modal } from '@/components/Modal';
 import { Button } from '@mui/material';
@@ -6,7 +8,10 @@ import { Button } from '@mui/material';
 import s from './index.module.scss';
 
 export const ProductsCreate: React.FC = () => {
+  const token = useAppSelector(tokenSelectors.get);
   const [formVisible, setFormVisible] = useState(false);
+
+  if (!token) return;
 
   const openFormModal = () => {
     setFormVisible(true);

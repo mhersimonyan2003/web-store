@@ -1,4 +1,6 @@
 import React from 'react';
+import { useAppSelector } from '@/store';
+import { tokenSelectors } from '@/store/token';
 import { ProductCard } from '@/components';
 
 import s from './index.module.scss';
@@ -9,10 +11,12 @@ interface Props {
 }
 
 export const CheckoutList: React.FC<Props> = ({ orderProducts }) => {
+  const token = useAppSelector(tokenSelectors.get);
+
   return (
     <div className={s.checkout__list}>
       {orderProducts.map((product) => (
-        <ProductCard product={product} quantity={product.quantity} key={product.id} />
+        <ProductCard editable={Boolean(token)} product={product} quantity={product.quantity} key={product.id} />
       ))}
     </div>
   );

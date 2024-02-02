@@ -1,4 +1,6 @@
 import React from 'react';
+import { useAppSelector } from '@/store';
+import { tokenSelectors } from '@/store/token';
 import { Product } from '@/types';
 import { ProductCard } from '@/components';
 
@@ -9,9 +11,11 @@ interface Props {
 }
 
 export const ProductsList: React.FC<Props> = ({ products }) => {
+  const token = useAppSelector(tokenSelectors.get);
+
   return (
     <div className={s.products__list}>
-      {products?.map((product) => <ProductCard product={product} key={product.id} />)}
+      {products?.map((product) => <ProductCard editable={Boolean(token)} product={product} key={product.id} />)}
     </div>
   );
 };
