@@ -14,7 +14,6 @@ export const getProducts = async (pageNumber: number): Promise<GetProductsResult
         }),
       }).toString()}`
     );
-    console.log(response.data);
 
     return response.data;
   } catch (error) {
@@ -26,7 +25,6 @@ export const getProducts = async (pageNumber: number): Promise<GetProductsResult
 export const createProduct = async (productFormData: ProductFormData): Promise<Product> => {
   try {
     const response: AxiosResponse<Product> = await apiAuth.post(`/products/`, productFormData);
-    console.log(response.data);
 
     return response.data;
   } catch (error) {
@@ -38,7 +36,6 @@ export const createProduct = async (productFormData: ProductFormData): Promise<P
 export const updateProduct = async (id: string, productFormData: ProductFormData): Promise<Product> => {
   try {
     const response: AxiosResponse<Product> = await apiAuth.put(`/products/${id}`, productFormData);
-    console.log(response.data);
 
     return response.data;
   } catch (error) {

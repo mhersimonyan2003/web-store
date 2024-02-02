@@ -2,7 +2,6 @@ import { AnyAction, configureStore, ThunkAction } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { alerts } from './alerts';
 import { token } from './token';
-import { todos } from './todos';
 import { products } from './products';
 import { profile } from './profile';
 import { order } from './order';
@@ -11,7 +10,6 @@ export const store = configureStore({
   reducer: {
     alerts,
     token,
-    todos,
     products,
     profile,
     order,

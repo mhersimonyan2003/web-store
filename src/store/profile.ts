@@ -33,13 +33,9 @@ export const profileThunks = {
 
 export const profileSelectors = {
   get: (state: AppState): AppState['profile'] => {
-    console.log('profileSelectors get');
-
     return state.profile;
   },
   getName: (state: AppState): AppState['profile']['name'] => {
-    console.log('profileSelectors get name');
-
     return state.profile?.name;
   },
 };

@@ -24,8 +24,6 @@ export const alertsActions = alertsSlice.actions;
 
 export const alertsSelectors = {
   get: (state: AppState): AppState['alerts'] => {
-    console.log('alertsSelectors get');
-
     return state.alerts;
   },
 };

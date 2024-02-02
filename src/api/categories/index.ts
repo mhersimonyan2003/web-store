@@ -5,7 +5,6 @@ import { GetCategoriesResult } from './types';
 export const getCategories = async (): Promise<GetCategoriesResult> => {
   try {
     const response: AxiosResponse<GetCategoriesResult> = await api.get(`/categories/`);
-    console.log(response.data);
 
     return response.data;
   } catch (error) {

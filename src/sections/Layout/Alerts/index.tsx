@@ -8,7 +8,6 @@ import s from './index.module.scss';
 export const Alerts: React.FC = () => {
   const alerts = useAppSelector(alertsSelectors.get);
   const dispatch = useAppDispatch();
-  console.log(alerts);
 
   const closeAlert = (alertId: string) => {
     dispatch(alertsActions.remove(alertId));

@@ -52,18 +52,12 @@ export const orderThunks = {
 
 export const orderSelectors = {
   get: (state: AppState): AppState['order'] => {
-    console.log('orderSelectors get');
-
     return state.order;
   },
   getProducts: (state: AppState): AppState['order']['products'] => {
-    console.log('orderProductsSelectors get');
-
     return state.order?.products;
   },
   getQuantity: (state: AppState): number => {
-    console.log('orderProductsQuantitySelectors get');
-
     if (state.order?.products) {
       return state.order.products.reduce((acc, res) => acc + res.quantity, 0);
     } else {

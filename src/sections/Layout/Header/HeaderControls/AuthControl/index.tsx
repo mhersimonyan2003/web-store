@@ -11,11 +11,7 @@ export const AuthControl: React.FC = () => {
   const dispatch = useAppDispatch();
   const token = useAppSelector(tokenSelectors.get);
 
-  // const dispatch = useDispatch();
-
   const logoutHandler = () => {
-    console.log('LOGOUT');
-
     dispatch(tokenThunks.clearToken());
   };
 

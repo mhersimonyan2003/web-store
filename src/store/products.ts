@@ -48,8 +48,6 @@ export const productsThunks = {
 
 export const productsSelectors = {
   get: (state: AppState): AppState['products'] => {
-    console.log('productSelectors get');
-
     return state.products;
   },
 };

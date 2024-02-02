@@ -59,8 +59,6 @@ export const tokenThunks = {
 
 export const tokenSelectors = {
   get: (state: AppState): AppState['token'] => {
-    console.log('tokenSelectors get');
-
     return state.token;
   },
 };
