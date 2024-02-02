@@ -1,5 +1,4 @@
 export * from './Logo';
-export * from './MuiOverride';
 export * from './Input';
 export * from './Textarea';
 export * from './FileUpload';
