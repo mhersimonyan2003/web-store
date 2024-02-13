@@ -1,7 +1,7 @@
 import type { AxiosResponse } from 'axios';
 import { apiAuth } from '../api';
 import { Profile } from '@/types';
-import { ProfileFormData } from '@/components/Forms/ProfileForm/types';
+import { ProfileFormData } from '@/components';
 
 export const getProfile = async (): Promise<Profile> => {
   try {

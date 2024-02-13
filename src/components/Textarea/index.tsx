@@ -11,7 +11,7 @@ export const Textarea = React.forwardRef<HTMLInputElement, Props>((props, ref) =
 
   return (
     <TextField
-      margin="normal"
+      margin="none"
       fullWidth
       label={label}
       error={Boolean(error)}

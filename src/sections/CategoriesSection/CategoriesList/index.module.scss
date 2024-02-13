@@ -1,0 +1,7 @@
+.categories__list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: max-content;
+  grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+  gap: 12px;
+}

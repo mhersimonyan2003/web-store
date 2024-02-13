@@ -54,14 +54,16 @@ export const ProfileForm: React.FC<Props> = ({ data }) => {
           Profile Update
         </Typography>
         <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
-          <Input
-            label="Name"
-            name="name"
-            placeholder="Name"
-            error={errors.name?.message}
-            autoFocus
-            {...register('name')}
-          />
+          <div className={s['form__input-wrapper']}>
+            <Input
+              label="Name"
+              name="name"
+              placeholder="Name"
+              error={errors.name?.message}
+              autoFocus
+              {...register('name')}
+            />
+          </div>
           {errors.root?.serverError.message && <div className={s.form__error}>{errors.root.serverError.message}</div>}
           <div className={s.form__buttons}>
             <Button type="submit" fullWidth variant="contained">

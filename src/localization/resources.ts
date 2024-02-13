@@ -15,6 +15,7 @@ export const resources = {
         items: {
           profile: 'Profile',
           products: 'Products',
+          categories: 'Categories',
         },
       },
       operations: {
@@ -58,6 +59,7 @@ export const resources = {
         items: {
           profile: 'Profile',
           products: 'Products',
+          categories: 'Categories',
         },
       },
       operations: {

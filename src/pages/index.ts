@@ -3,3 +3,4 @@ export * from './Products';
 export * from './Profile';
 export * from './NotFound';
 export * from './Checkout';
+export * from './Categories';

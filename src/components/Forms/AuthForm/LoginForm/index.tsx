@@ -57,23 +57,27 @@ export const LoginForm: React.FC<Props> = ({ switchForm }) => {
           Sign in
         </Typography>
         <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
-          <Input
-            label="Email Address"
-            name="email"
-            placeholder="Email"
-            error={errors.email?.message}
-            autoFocus
-            {...register('email')}
-            type="email"
-          />
-          <Input
-            label="Password"
-            name="password"
-            placeholder="Password"
-            error={errors.password?.message}
-            {...register('password')}
-            type="password"
-          />
+          <div className={s['form__input-wrapper']}>
+            <Input
+              label="Email Address"
+              name="email"
+              placeholder="Email"
+              error={errors.email?.message}
+              autoFocus
+              {...register('email')}
+              type="email"
+            />
+          </div>
+          <div className={s['form__input-wrapper']}>
+            <Input
+              label="Password"
+              name="password"
+              placeholder="Password"
+              error={errors.password?.message}
+              {...register('password')}
+              type="password"
+            />
+          </div>
           {errors.root?.serverError.message && <div className={s.form__error}>{errors.root.serverError.message}</div>}
           <div className={s.form__buttons}>
             <Button type="submit" fullWidth variant="contained">

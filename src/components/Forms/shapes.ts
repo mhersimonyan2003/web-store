@@ -25,6 +25,10 @@ export const productFormShape = {
   categoryId: yup.string().required('Category is required'),
 };
 
+export const categoryFormShape = {
+  name: yup.string().required('Name is required'),
+};
+
 export const profileFormShape = {
   name: yup.string().required('First Name is required').min(7, 'Nickname must be at least 7 characters long'),
 };

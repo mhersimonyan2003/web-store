@@ -3,7 +3,7 @@ export enum ProductFormType {
   'update' = 'update',
 }
 
-export interface ProductFormData {
+export interface ProductsFormData {
   name: string;
   photo?: string;
   desc?: string;

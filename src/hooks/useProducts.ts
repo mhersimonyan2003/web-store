@@ -3,6 +3,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { getProducts } from '@/api/products';
 import { productsActions, productsSelectors } from '@/store/products';
 import { Product } from '@/types';
+import { ProductsFilterData } from '@/sections';
+import { getFiltersObj } from '@/helpers';
 
 const REFETCH_PRODUCTS_EVENT_KEY = 'REFETCH_PRODUCTS_EVENT';
 const REFETCH_PRODUCTS_EVENT = new CustomEvent('REFETCH_PRODUCTS_EVENT');
@@ -14,9 +16,10 @@ export const refetchProducts = () => {
 interface Props {
   pageNumber: number;
   fetch?: boolean;
+  filters?: ProductsFilterData;
 }
 
-export const useProducts = ({ pageNumber, fetch = true }: Props) => {
+export const useProducts = ({ pageNumber, fetch = true, filters = null }: Props) => {
   const products = useAppSelector(productsSelectors.get);
   const dispatch = useAppDispatch();
 
@@ -34,12 +37,13 @@ export const useProducts = ({ pageNumber, fetch = true }: Props) => {
   const fetchProducts = useCallback(
     async (_event: Event, page = pageNumber) => {
       setLoading(true);
+      const filtersObj = getFiltersObj<ProductsFilterData>({ filters, page });
 
       try {
         const {
           data,
           pagination: { total, pageSize },
-        } = await getProducts(page);
+        } = await getProducts(filtersObj);
 
         setError(null);
         setPagesTotal(Math.ceil(total / pageSize));
@@ -50,7 +54,7 @@ export const useProducts = ({ pageNumber, fetch = true }: Props) => {
         setLoading(false);
       }
     },
-    [pageNumber, setProducts]
+    [pageNumber, setProducts, filters]
   );
 
   useEffect(() => {

@@ -1,6 +1,7 @@
 export enum Page {
   'profile' = 'profile',
   'products' = 'products',
+  'categories' = 'categories',
 }
 
 export interface AlertMessage {
@@ -63,7 +64,7 @@ export interface Pagination {
   total: number;
 }
 
-enum SortDirection {
+export enum SortDirection {
   'ASC' = 'ASC',
   'DESC' = 'DESC',
 }

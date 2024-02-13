@@ -3,7 +3,7 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { CaseReducer } from '@reduxjs/toolkit/src/createReducer';
 import { updateProfile } from '@/api/profile';
 import { Profile } from '@/types';
-import { ProfileFormData } from '@/components/Forms/ProfileForm/types';
+import { ProfileFormData } from '@/components';
 import { AppState, AppThunk } from './index';
 import { alertsActions } from './alerts';
 

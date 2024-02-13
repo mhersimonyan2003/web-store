@@ -1,11 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { CaseReducer } from '@reduxjs/toolkit/src/createReducer';
-import { AppState, AppThunk } from './index';
-import { Product } from '@/types';
-import { ProductFormData } from '@/components/Forms/ProductForm/types';
-import { refetchProducts } from '@/hooks';
 import { createProduct, updateProduct } from '@/api/products';
+import { Product } from '@/types';
+import { ProductsFormData } from '@/components';
+import { refetchProducts } from '@/hooks';
+import { AppState, AppThunk } from './index';
 
 const set: CaseReducer<Array<Product>, PayloadAction<Array<Product>>> = (_, action) => action.payload;
 
@@ -25,17 +25,17 @@ const setProductsThunk =
   };
 
 const updateProductThunk =
-  (id: string, productFormData: ProductFormData): AppThunk =>
+  (id: string, productsFormData: ProductsFormData): AppThunk =>
   async () => {
-    await updateProduct(id, productFormData);
+    await updateProduct(id, productsFormData);
 
     refetchProducts();
   };
 
 const createProductThunk =
-  (productFormData: ProductFormData): AppThunk =>
+  (productsFormData: ProductsFormData): AppThunk =>
   async () => {
-    await createProduct(productFormData);
+    await createProduct(productsFormData);
 
     refetchProducts();
   };

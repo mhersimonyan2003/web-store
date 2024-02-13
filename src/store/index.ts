@@ -3,6 +3,7 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { alerts } from './alerts';
 import { token } from './token';
 import { products } from './products';
+import { categories } from './categories';
 import { profile } from './profile';
 import { order } from './order';
 
@@ -11,6 +12,7 @@ export const store = configureStore({
     alerts,
     token,
     products,
+    categories,
     profile,
     order,
   },

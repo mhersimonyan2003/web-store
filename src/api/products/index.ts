@@ -1,18 +1,15 @@
 import type { AxiosResponse } from 'axios';
+import { Product } from '@/types';
+import { queryFilters } from '@/helpers';
+import { ProductsFormData } from '@/components';
 import { apiAuth } from '../api';
 import { GetProductsResult } from './types';
-import { ProductFormData } from '@/components/Forms/ProductForm/types';
-import { Product } from '@/types';
+import { ProductsFilterData } from '@/sections';
 
-export const getProducts = async (pageNumber: number): Promise<GetProductsResult> => {
+export const getProducts = async (filters: ProductsFilterData): Promise<GetProductsResult> => {
   try {
     const response: AxiosResponse<GetProductsResult> = await apiAuth.get(
-      `/products/?${new URLSearchParams({
-        pagination: JSON.stringify({
-          pageSize: 16,
-          pageNumber,
-        }),
-      }).toString()}`
+      `/products/?${queryFilters<ProductsFilterData>(filters)}`
     );
 
     return response.data;
@@ -22,9 +19,9 @@ export const getProducts = async (pageNumber: number): Promise<GetProductsResult
   }
 };
 
-export const createProduct = async (productFormData: ProductFormData): Promise<Product> => {
+export const createProduct = async (productsFormData: ProductsFormData): Promise<Product> => {
   try {
-    const response: AxiosResponse<Product> = await apiAuth.post(`/products/`, productFormData);
+    const response: AxiosResponse<Product> = await apiAuth.post(`/products/`, productsFormData);
 
     return response.data;
   } catch (error) {
@@ -33,9 +30,9 @@ export const createProduct = async (productFormData: ProductFormData): Promise<P
   }
 };
 
-export const updateProduct = async (id: string, productFormData: ProductFormData): Promise<Product> => {
+export const updateProduct = async (id: string, productsFormData: ProductsFormData): Promise<Product> => {
   try {
-    const response: AxiosResponse<Product> = await apiAuth.put(`/products/${id}`, productFormData);
+    const response: AxiosResponse<Product> = await apiAuth.put(`/products/${id}`, productsFormData);
 
     return response.data;
   } catch (error) {

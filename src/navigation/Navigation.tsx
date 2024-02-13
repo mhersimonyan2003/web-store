@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { Auth, NotFound, Products, Profile, Checkout } from '@/pages';
+import { Auth, NotFound, Products, Profile, Checkout, Categories } from '@/pages';
 import { ProtectedRoute } from './ProtectedRoute';
 import { useLoginNavigate } from './useLoginNavigate';
 
@@ -20,6 +20,7 @@ export const Navigation: React.FC = () => {
         }
       />
       <Route path="products" element={<Products />} />
+      <Route path="categories" element={<Categories />} />
       <Route
         path="checkout"
         element={

@@ -1,3 +1,6 @@
+import { PAGE_SIZE } from '@/constants';
+import { Pagination } from '@/types';
+
 export const formatDate = (date: Date) => {
   const d = new Date(date);
   let month = '' + (d.getMonth() + 1);
@@ -30,4 +33,24 @@ export const formatNumber = (num: number) => {
     .join(' ');
 
   return [formattedIntPart, floarPart].join(',');
+};
+
+export const queryFilters = <T extends object>(filters: T) => {
+  return new URLSearchParams(
+    Object.fromEntries(Object.entries(filters).map(([key, value]) => [key, JSON.stringify(value)]))
+  );
+};
+
+export const getFiltersObj = <T extends object>({ filters, page }: { filters?: T; page?: number }) => {
+  const pagination: Omit<Pagination, 'total'> = page
+    ? {
+        pageSize: PAGE_SIZE,
+        pageNumber: page,
+      }
+    : null;
+
+  return {
+    pagination,
+    ...filters,
+  };
 };

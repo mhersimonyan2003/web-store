@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { IconButton } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
-import { ProductForm } from '@/components';
 import { Product } from '@/types';
-import { Modal } from '@/components/Modal';
+import { Modal, ProductForm, ProductsFormData } from '@/components';
 
 import s from './index.module.scss';
-import { ProductFormData } from '@/components/Forms/ProductForm/types';
 
 interface Props {
   product: Product;
@@ -24,7 +22,7 @@ export const ProductEdit: React.FC<Props> = ({ product }) => {
     setFormVisible(false);
   };
 
-  const productFormData: ProductFormData = {
+  const productsFormData: ProductsFormData = {
     name: name,
     photo: photo,
     oldPrice: oldPrice,
@@ -41,7 +39,7 @@ export const ProductEdit: React.FC<Props> = ({ product }) => {
         </IconButton>
       </div>
       <Modal visible={formVisible} setVisible={setFormVisible} title={product.name}>
-        <ProductForm id={id} data={productFormData} onSubmitHandler={closeFormModal} />
+        <ProductForm id={id} data={productsFormData} onSubmitHandler={closeFormModal} />
       </Modal>
     </React.Fragment>
   );

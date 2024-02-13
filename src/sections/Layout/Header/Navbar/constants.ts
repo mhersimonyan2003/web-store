@@ -8,4 +8,9 @@ export const navbarItems: Array<TNavbarItem> = [
     href: Page.products,
     withAuth: false,
   },
+  {
+    key: 'navbar.items.categories',
+    href: Page.categories,
+    withAuth: false,
+  },
 ];
