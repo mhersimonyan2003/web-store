@@ -54,9 +54,11 @@ export const LoginForm: React.FC<Props> = ({ switchForm }) => {
         <div className={s.form__avatar}>
           <LockOutlinedIcon />
         </div>
-        <Typography component="h1" variant="h5">
-          {t('signIn')}
-        </Typography>
+        <div className={s.form__title}>
+          <Typography component="h1" variant="h5">
+            {t('signIn')}
+          </Typography>
+        </div>
         <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
           <div className={s['form__input-wrapper']}>
             <Input

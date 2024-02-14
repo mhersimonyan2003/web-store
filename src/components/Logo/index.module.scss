@@ -1,7 +1,9 @@
+@import '@/styles/common';
+
 .logo {
   display: flex;
   flex-direction: column;
-  color: rgba(0, 0, 0, 0.87);
+  @include theme(color, text-02);
   text-decoration: none;
 }
 

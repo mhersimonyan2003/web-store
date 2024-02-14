@@ -1,4 +1,5 @@
 import React, { createContext, FC, useCallback, useContext, useState, useMemo } from 'react';
+import { ThemeProvider as MuiThemeProvider, createTheme } from '@mui/material';
 import { Theme } from './types';
 
 import '@/styles/index.scss';
@@ -33,9 +34,23 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
 
   const value = useMemo(() => ({ theme, toggleTheme, setTheme }), [theme, toggleTheme, setTheme]);
 
+  const muiTheme = React.useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode: theme,
+        },
+      }),
+    [theme]
+  );
+
   return (
     <ThemeContext.Provider value={value}>
-      <div className={theme}>{children}</div>
+      <MuiThemeProvider theme={muiTheme}>
+        <div id="wrapper" className={theme}>
+          {children}
+        </div>
+      </MuiThemeProvider>
     </ThemeContext.Provider>
   );
 };

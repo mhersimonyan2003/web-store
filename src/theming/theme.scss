@@ -1,27 +1,42 @@
 // Переменные для светлой темы
 $light: (
-  mainBg: #fff,
-  headerBg: #3333cc,
-  logoBg: #eee,
-  logoColor: #000,
-  operationBorder: 1px solid #ccc,
-  operationBgColor: #f9f9f9,
-  operationBoxShadow: 0 2px 4px rgba(0, 0, 0, 0.1),
-  operationColor: #000,
-  operationDescriptionColor: #666,
-  navbarItemColor: #fff,
+  card-background-01: #ffffff,
+  card-background-02: #fbfbfb,
+  card-background-03: #f2f2f2,
+  card-background-04: #f5f5f5,
+  card-background-05: rgba(0, 0, 0, 0.6),
+  text-01: #070707,
+  text-02: rgba(0, 0, 0, 0.87),
+  text-03: #99a3ae,
+  text-04: #212121,
+  text-error: #d32f2f,
+  white: #ffffff,
+  purple: #9c27b0,
+  red: #f81155,
+  blue: #03a9f4,
+  backdrop-color: rgba(0, 0, 0, 0.23),
 );
 
 // Переменные для темной темы
 $dark: (
-  mainBg: #23272f,
-  headerBg: #fff,
-  logoBg: #000,
-  logoColor: #eee,
-  operationBorder: 1px solid #333,
-  operationBgColor: #1c1c1c,
-  operationBoxShadow: 0 2px 4px rgba(255, 255, 255, 0.1),
-  operationColor: #fff,
-  operationDescriptionColor: #fff,
-  navbarItemColor: #1c1c1c,
+  card-background-01: #ffffff,
+  card-background-02: #353535,
+  card-background-03: #3f3f3f,
+  card-background-04: #616161,
+  card-background-05: rgba(255, 255, 255, 0.6),
+  text-01: #f8f8f8,
+  text-02: rgba(255, 255, 255, 0.87),
+  text-03: #99a3ae,
+  text-04: #cfcfcf,
+  text-error: #d32f2f,
+  white: #ffffff,
+  purple: #9c27b0,
+  red: #f81155,
+  blue: #03a9f4,
+  backdrop-color: rgba(0, 0, 0, 0.43),
 );
+
+/*
+@import '@/styles/common';
+@include theme(background-color, card-background-02);
+*/

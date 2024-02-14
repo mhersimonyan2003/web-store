@@ -1,33 +1,13 @@
+@import '@/styles/common';
+
 .select-wrapper {
   min-width: 150px;
   display: flex;
   flex-direction: column;
 }
 
-.select__label {
-  font-weight: bold;
-}
-
-.select {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #fff;
-  cursor: pointer;
-
-  &:focus {
-    border-color: #007bff; /* Change border color on focus */
-  }
-
-  &.error {
-    border-color: #e74c3c; /* Change border color for invalid state */
-  }
-}
-
 .select__error {
-  color: #d32f2f;
+  @include theme(background-color, text-error);
   font-size: 0.75rem;
   line-height: 1.66;
   letter-spacing: 0.03333em;

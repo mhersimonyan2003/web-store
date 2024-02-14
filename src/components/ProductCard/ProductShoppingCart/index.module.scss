@@ -1,3 +1,5 @@
+@import '@/styles/common';
+
 .product-shopping-cart {
   flex: 1;
   height: 40px;
@@ -12,4 +14,5 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @include theme(color, text-01);
 }

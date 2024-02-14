@@ -1,10 +1,7 @@
-import { Typography } from '@mui/material';
 import React from 'react';
 
+import s from './index.module.scss';
+
 export const FooterCopyright: React.FC = () => {
-  return (
-    <Typography variant="body1" color="text.secondary">
-      Copyright © {new Date().getFullYear()} MOIS. All Rights Reserved
-    </Typography>
-  );
+  return <div className={s.footer__copyright}>Copyright © {new Date().getFullYear()} MOIS. All Rights Reserved</div>;
 };

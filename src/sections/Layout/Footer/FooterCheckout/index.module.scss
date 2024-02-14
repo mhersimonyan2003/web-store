@@ -1,3 +1,5 @@
+@import '@/styles/common';
+
 .checkout {
   position: relative;
   cursor: pointer;
@@ -14,8 +16,8 @@
   align-items: center;
   padding: 2px;
   border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: #ffffff;
+  @include theme(background-color, card-background-05);
+  @include theme(color, white);
   right: 0;
   bottom: 0;
   transform: translate(-60%, -60%);

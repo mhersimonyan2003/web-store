@@ -1,3 +1,5 @@
+@import '@/styles/common';
+
 .form__wrapper {
   max-width: 444px;
   width: 100%;
@@ -31,9 +33,17 @@
   font-size: 1.25rem;
   line-height: 1;
   border-radius: 50%;
-  color: #fff;
+  @include theme(color, white);
   margin: 8px 8px 0;
-  background-color: #9c27b0;
+  @include theme(background-color, purple);
+}
+
+.form__title {
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.334;
+  letter-spacing: 0em;
+  @include theme(color, text-01);
 }
 
 .form__input-wrapper {
@@ -43,7 +53,7 @@
 
 .form__error {
   margin-top: 8px;
-  color: #d32f2f;
+  @include theme(color, text-error);
 }
 
 .form__buttons {

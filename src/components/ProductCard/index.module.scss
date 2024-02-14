@@ -1,13 +1,15 @@
+@import '@/styles/common';
+
 .product__card {
   position: relative;
   display: flex;
   flex-direction: column;
   padding: 16px;
   border-radius: 5px;
-  background-color: #fbfbfb;
+  @include theme(background-color, card-background-02);
 
   &:hover {
-    background-color: #f2f2f2;
+    @include theme(background-color, card-background-03);
   }
 }
 
@@ -27,7 +29,7 @@
 
 .product__card__price-current {
   white-space: nowrap;
-  color: #f81155;
+  @include theme(color, red);
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.4px;
@@ -38,14 +40,14 @@
   white-space: nowrap;
   position: relative;
   margin: 0 4px;
-  color: #99a3ae;
+  @include theme(color, text-03);
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.2px;
   line-height: 18px;
 
   &::before {
-    background: #99a3ae;
+    @include theme(background-color, text-03);
     content: '';
     display: block;
     height: 1px;
@@ -58,7 +60,7 @@
 }
 
 .product__card__price-discount {
-  color: #f91155;
+  @include theme(color, red);
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.2px;
@@ -75,18 +77,18 @@
 }
 
 .product__card__name {
-  color: #070707;
+  @include theme(color, text-01);
   font-size: 14px;
 }
 
 .product__card__category {
-  color: #03a9f4;
+  @include theme(color, blue);
   font-size: 12px;
 }
 
 .product__card__description {
   margin-top: 4px;
-  color: #212121;
+  @include theme(color, text-04);
   font-size: 10px;
   font-weight: 400;
   letter-spacing: 0.14px;

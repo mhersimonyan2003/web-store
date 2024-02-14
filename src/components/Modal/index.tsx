@@ -13,7 +13,13 @@ interface Props {
   children: ReactNode;
 }
 
-export const Modal: React.FC<Props> = ({ container = document.body, title, visible, setVisible, children }) => {
+export const Modal: React.FC<Props> = ({
+  container = document.getElementById('wrapper'),
+  title,
+  visible,
+  setVisible,
+  children,
+}) => {
   useEffect(() => {
     if (visible) {
       document.body.style.overflow = 'hidden';
