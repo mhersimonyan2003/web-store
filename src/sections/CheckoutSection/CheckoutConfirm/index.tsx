@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@mui/material';
 import { useAppDispatch } from '@/store';
 import { orderThunks } from '@/store/order';
@@ -10,7 +11,8 @@ interface Props {
   order: CheckoutOrder;
 }
 
-export const CheckoutApprove: React.FC<Props> = ({ order }) => {
+export const CheckoutConfirm: React.FC<Props> = ({ order }) => {
+  const { t } = useTranslation('translation', { keyPrefix: 'sections.checkout' });
   const dispatch = useAppDispatch();
 
   const approveCartCheckout = () => {
@@ -20,7 +22,7 @@ export const CheckoutApprove: React.FC<Props> = ({ order }) => {
   return (
     <div className={s.checkout_approve}>
       <Button variant="outlined" onClick={approveCartCheckout}>
-        CHECKOUT
+        {t('checkoutConfirm')}
       </Button>
     </div>
   );

@@ -1,9 +1,9 @@
 import React from 'react';
 import { LocalizationToggle } from './LocalizationToggle';
 import { ThemeToggle } from './ThemeToggle';
+import { AuthControl } from './AuthControl';
 
 import s from './index.module.scss';
-import { AuthControl } from './AuthControl';
 
 export const HeaderControls: React.FC = () => {
   return (

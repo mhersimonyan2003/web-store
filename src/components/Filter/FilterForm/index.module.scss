@@ -28,7 +28,7 @@
 .filters__form__inputs__item {
   flex: 1;
 
-  .full-width {
+  &.full-width {
     flex-basis: 100%;
   }
 }

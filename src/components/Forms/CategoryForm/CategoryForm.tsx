@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
-import { yupResolver } from '@hookform/resolvers/yup';
+import { useTranslation } from 'react-i18next';
 import { Resolver, SubmitHandler, useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from '@mui/material';
 import { useAppDispatch } from '@/store';
 import { categoriesThunks } from '@/store/categories';
@@ -20,6 +21,8 @@ interface Props {
 }
 
 export const CategoryForm: React.FC<Props> = ({ data, id, onSubmitHandler }) => {
+  const { t } = useTranslation('translation', { keyPrefix: 'components.forms.categoryForm' });
+  const { t: tGlobal } = useTranslation('translation', { keyPrefix: 'global' });
   const formType = data ? CategoryFormType.update : CategoryFormType.create;
   const dispatch = useAppDispatch();
 
@@ -67,9 +70,9 @@ export const CategoryForm: React.FC<Props> = ({ data, id, onSubmitHandler }) => 
         <FileUplaod {...register('photo')} setValue={setPhotoValue} />
         <div className={s['form__input-wrapper']}>
           <Input
-            label="Name"
+            label={t('name')}
             name="name"
-            placeholder="Name"
+            placeholder={t('name')}
             error={errors.name?.message}
             autoFocus
             {...register('name')}
@@ -78,7 +81,7 @@ export const CategoryForm: React.FC<Props> = ({ data, id, onSubmitHandler }) => 
         {errors.root?.serverError.message && <div className={s.form__error}>{errors.root.serverError.message}</div>}
         <div className={s.form__buttons}>
           <Button type="submit" fullWidth variant="contained">
-            Submit
+            {tGlobal('submit')}
           </Button>
         </div>
       </form>

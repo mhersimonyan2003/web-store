@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button, IconButton } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AddIcon from '@mui/icons-material/Add';
@@ -15,6 +16,7 @@ interface Props {
 }
 
 export const ProductShoppingCart: React.FC<Props> = ({ product, quantity }) => {
+  const { t } = useTranslation('translation', { keyPrefix: 'components.productCard' });
   const [count, setCount] = useState(quantity || 0);
   const dispatch = useAppDispatch();
 
@@ -32,7 +34,8 @@ export const ProductShoppingCart: React.FC<Props> = ({ product, quantity }) => {
     <div className={s['product-shopping-cart']}>
       {count === 0 ? (
         <Button variant="contained" color="info" onClick={increaseCount}>
-          <ShoppingCartIcon />В корзину
+          <ShoppingCartIcon />
+          {t('addToCart')}
         </Button>
       ) : (
         <div className={s['product-shopping-cart__controls']}>

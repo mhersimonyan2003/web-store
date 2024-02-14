@@ -1,52 +1,52 @@
-import { Option } from '@/components';
-import { FilterItem, FilterItemType } from '@/components/Filter/types';
+import type { TFunction } from 'i18next';
+import { Option, FilterItem, FilterItemType } from '@/components';
 import { SortDirection } from '@/types';
 
-const sortDirectionOptions = [
+const getSortDirectionOptions = (t: TFunction) => [
   {
-    key: 'ASC',
+    key: t('sortDirection.asc'),
     value: SortDirection.ASC,
   },
   {
-    key: 'DESC',
+    key: t('sortDirection.desc'),
     value: SortDirection.DESC,
   },
 ];
-const sortFieldOptions = [
+const getSortFieldOptions = (t: TFunction) => [
   {
-    key: 'Name',
+    key: t('sortField.name'),
     value: 'name',
   },
   {
-    key: 'Date',
+    key: t('sortField.date'),
     value: 'date',
   },
 ];
 
-export const getFilterItems = (categoriesOptions: Array<Option>): Array<FilterItem> => {
+export const getFilterItems = (categoriesOptions: Array<Option>, t: TFunction): Array<FilterItem> => {
   return [
     {
       type: FilterItemType.input,
       name: 'name',
-      placeholder: 'Name',
-      label: 'Name',
+      placeholder: t('inputs.name'),
+      label: t('inputs.name'),
     },
     {
       type: FilterItemType.select,
       name: 'sorting.field',
-      label: 'Sort Field',
-      options: sortFieldOptions,
+      label: t('inputs.sortField'),
+      options: getSortFieldOptions(t),
     },
     {
       type: FilterItemType.select,
       name: 'sorting.type',
-      label: 'Sort Direction',
-      options: sortDirectionOptions,
+      label: t('inputs.sortDirection'),
+      options: getSortDirectionOptions(t),
     },
     {
       type: FilterItemType.multiselect,
       name: 'categoryIds',
-      label: 'Categories',
+      label: t('inputs.categories'),
       options: categoriesOptions,
       fullWidth: true,
     },

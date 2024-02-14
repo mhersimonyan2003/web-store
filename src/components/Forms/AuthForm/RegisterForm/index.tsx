@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { Resolver, SubmitHandler, useForm } from 'react-hook-form';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
@@ -19,7 +20,7 @@ interface Props {
 }
 
 export const RegisterForm: React.FC<Props> = ({ switchForm }) => {
-  // const { t } = useTranslation();
+  const { t } = useTranslation('translation', { keyPrefix: 'components.forms.authForm' });
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -54,14 +55,14 @@ export const RegisterForm: React.FC<Props> = ({ switchForm }) => {
           <LockOpenIcon />
         </div>
         <Typography component="h1" variant="h5">
-          Sign Up
+          {t('signUp')}
         </Typography>
         <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
           <div className={s['form__input-wrapper']}>
             <Input
-              label="Email Address"
+              label={t('email')}
               name="email"
-              placeholder="Email"
+              placeholder={t('email')}
               error={errors.email?.message}
               autoFocus
               {...register('email')}
@@ -70,9 +71,9 @@ export const RegisterForm: React.FC<Props> = ({ switchForm }) => {
           </div>
           <div className={s['form__input-wrapper']}>
             <Input
-              label="Password"
+              label={t('password')}
               name="password"
-              placeholder="Password"
+              placeholder={t('password')}
               error={errors.password?.message}
               {...register('password')}
               type="password"
@@ -81,12 +82,12 @@ export const RegisterForm: React.FC<Props> = ({ switchForm }) => {
           {errors.root?.serverError.message && <div className={s.form__error}>{errors.root.serverError.message}</div>}
           <div className={s.form__buttons}>
             <Button type="submit" fullWidth variant="contained">
-              Sign Up
+              {t('signUp')}
             </Button>
           </div>
           <ul className={s.form__links}>
             <li className={s.form__links__item} onClick={switchForm}>
-              <Link variant="body2">Already have an account? Sign In</Link>
+              <Link variant="body2">{t('alreadyHaveAccount')}</Link>
             </li>
           </ul>
         </form>

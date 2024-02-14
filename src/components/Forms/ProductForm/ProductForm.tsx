@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
-import { yupResolver } from '@hookform/resolvers/yup';
+import { useTranslation } from 'react-i18next';
 import { Controller, Resolver, SubmitHandler, useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from '@mui/material';
 import { useAppDispatch, useAppSelector } from '@/store';
 import { productsThunks } from '@/store/products';
@@ -21,6 +22,8 @@ interface Props {
 }
 
 export const ProductForm: React.FC<Props> = ({ data, id, onSubmitHandler }) => {
+  const { t } = useTranslation('translation', { keyPrefix: 'components.forms.productForm' });
+  const { t: tGlobal } = useTranslation('translation', { keyPrefix: 'global' });
   const formType = data ? ProductFormType.update : ProductFormType.create;
   const categoriesOptions = useAppSelector(categoriesSelectors.getOptions);
   const dispatch = useAppDispatch();
@@ -70,9 +73,9 @@ export const ProductForm: React.FC<Props> = ({ data, id, onSubmitHandler }) => {
         <FileUplaod {...register('photo')} setValue={setPhotoValue} />
         <div className={s['form__input-wrapper']}>
           <Input
-            label="Name"
+            label={t('name')}
             name="name"
-            placeholder="Name"
+            placeholder={t('name')}
             error={errors.name?.message}
             autoFocus
             {...register('name')}
@@ -84,15 +87,21 @@ export const ProductForm: React.FC<Props> = ({ data, id, onSubmitHandler }) => {
             control={control}
             defaultValue=""
             render={({ field }) => (
-              <Select {...field} label="Category" options={categoriesOptions} helperText={errors.categoryId?.message} />
+              <Select
+                {...field}
+                label={t('category')}
+                options={categoriesOptions}
+                error={Boolean(errors.categoryId?.message)}
+                helperText={errors.categoryId?.message}
+              />
             )}
           />
         </div>
         <div className={s['form__input-wrapper']}>
           <Input
-            label="Old Price"
+            label={t('oldPrice')}
             name="oldPrice"
-            placeholder="Old Price"
+            placeholder={t('oldPrice')}
             error={errors.oldPrice?.message}
             {...register('oldPrice')}
             type="number"
@@ -100,9 +109,9 @@ export const ProductForm: React.FC<Props> = ({ data, id, onSubmitHandler }) => {
         </div>
         <div className={s['form__input-wrapper']}>
           <Input
-            label="Price"
+            label={t('price')}
             name="price"
-            placeholder="Price"
+            placeholder={t('price')}
             error={errors.price?.message}
             {...register('price')}
             type="number"
@@ -110,9 +119,9 @@ export const ProductForm: React.FC<Props> = ({ data, id, onSubmitHandler }) => {
         </div>
         <div className={s['form__input-wrapper']}>
           <Textarea
-            label="Description"
+            label={t('desc')}
             name="desc"
-            placeholder="Description"
+            placeholder={t('desc')}
             error={errors.desc?.message}
             {...register('desc')}
           />
@@ -120,7 +129,7 @@ export const ProductForm: React.FC<Props> = ({ data, id, onSubmitHandler }) => {
         {errors.root?.serverError.message && <div className={s.form__error}>{errors.root.serverError.message}</div>}
         <div className={s.form__buttons}>
           <Button type="submit" fullWidth variant="contained">
-            Submit
+            {tGlobal('submit')}
           </Button>
         </div>
       </form>

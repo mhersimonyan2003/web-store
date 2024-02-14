@@ -12,12 +12,15 @@ import s from '../index.module.scss';
 import { profileThunks } from '@/store/profile';
 import { ServerError } from '@/types';
 import { handleFormError } from '../constants';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   data: ProfileFormData;
 }
 
 export const ProfileForm: React.FC<Props> = ({ data }) => {
+  const { t } = useTranslation('translation', { keyPrefix: 'components.forms.profileForm' });
+  const { t: tGlobal } = useTranslation('translation', { keyPrefix: 'global' });
   const dispatch = useAppDispatch();
 
   const {
@@ -51,14 +54,14 @@ export const ProfileForm: React.FC<Props> = ({ data }) => {
           <PersonOutlineIcon />
         </div>
         <Typography component="h1" variant="h5">
-          Profile Update
+          {t('title')}
         </Typography>
         <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
           <div className={s['form__input-wrapper']}>
             <Input
-              label="Name"
+              label={t('name')}
               name="name"
-              placeholder="Name"
+              placeholder={t('name')}
               error={errors.name?.message}
               autoFocus
               {...register('name')}
@@ -67,7 +70,7 @@ export const ProfileForm: React.FC<Props> = ({ data }) => {
           {errors.root?.serverError.message && <div className={s.form__error}>{errors.root.serverError.message}</div>}
           <div className={s.form__buttons}>
             <Button type="submit" fullWidth variant="contained">
-              Update
+              {tGlobal('submit')}
             </Button>
           </div>
         </form>

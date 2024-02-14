@@ -2,7 +2,7 @@ import React from 'react';
 import { useAppSelector } from '@/store';
 import { orderSelectors } from '@/store/order';
 import { CheckoutList } from './CheckoutList';
-import { CheckoutApprove } from './CheckoutApprove';
+import { CheckoutConfirm } from './CheckoutConfirm';
 import { CheckoutEmpty } from './CheckoutEmpty';
 
 import s from './index.module.scss';
@@ -16,7 +16,7 @@ export const CheckoutSection: React.FC = () => {
       {orderProducts.length ? (
         <React.Fragment>
           <CheckoutList orderProducts={orderProducts} />
-          <CheckoutApprove order={order} />
+          <CheckoutConfirm order={order} />
         </React.Fragment>
       ) : (
         <CheckoutEmpty />

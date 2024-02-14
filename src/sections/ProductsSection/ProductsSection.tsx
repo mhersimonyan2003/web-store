@@ -1,15 +1,17 @@
 import React, { useCallback, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Pagination, CircularProgress } from '@mui/material';
 import { refetchProducts, useCategories, useProducts } from '@/hooks';
 import { Filter } from '@/components';
-import { ProductsCreate } from './ProductsCreate';
-import { ProductsList } from './ProductsList';
 import { ProductsFilterData } from './types';
 import { getFilterItems } from './constants';
+import { ProductsCreate } from './ProductsCreate';
+import { ProductsList } from './ProductsList';
 
 import s from './index.module.scss';
 
 export const ProductsSection: React.FC = () => {
+  const { t } = useTranslation('translation', { keyPrefix: 'sections.products.filter' });
   const [pageNumber, setPageNumber] = useState(1);
   const [filters, setFilters] = useState<ProductsFilterData>({ categoryIds: [] });
   const { products, pagesTotal, loading, error } = useProducts({ pageNumber, filters });
@@ -20,7 +22,7 @@ export const ProductsSection: React.FC = () => {
     setPageNumber(page);
   }, []);
 
-  const filterItems = useMemo(() => getFilterItems(categoriesOptions), [categoriesOptions]);
+  const filterItems = useMemo(() => getFilterItems(categoriesOptions, t), [categoriesOptions, t]);
 
   if (loading) return <CircularProgress />;
   if (error) return <div>{error}</div>;

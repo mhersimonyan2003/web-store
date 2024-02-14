@@ -1,8 +1,8 @@
 import React from 'react';
-import { Theme, useThemeContext } from '@/theming';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { IconButton } from '@mui/material';
+import { Theme, useThemeContext } from '@/theming';
 
 import s from './index.module.scss';
 

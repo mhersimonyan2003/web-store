@@ -1,47 +1,111 @@
 // the translations
 // (tip move them in a JSON file and import them,
+
 // or even better, manage them separated from your code: https://react.i18next.com/guides/multiple-translation-files)
+
 export const resources = {
   en: {
     translation: {
       global: {
-        edit: 'Edit',
-        openModal: 'Open Modal',
-        modalInput: {
-          placeholder: 'Modal Text...',
+        submit: 'Submit',
+        create: 'Create',
+      },
+      components: {
+        fileUpload: {
+          upload: 'Upload File',
+        },
+        forms: {
+          authForm: {
+            signIn: 'Sign In',
+            signUp: 'Sign Up',
+            email: 'Email Address',
+            password: 'Password',
+            dontHaveAccount: "Don't have an account? Sign Up",
+            alreadyHaveAccount: 'Already have an account? Sign In',
+          },
+          categoryForm: {
+            name: 'Name',
+          },
+          productForm: {
+            name: 'Name',
+            category: 'Category',
+            oldPrice: 'Old Price',
+            price: 'Price',
+            desc: 'Description',
+          },
+          profileForm: {
+            title: 'Profile Update',
+            name: 'Name',
+          },
+          validationMessages: {
+            emailRequired: 'Email is required',
+            emailInvalid: 'Invalid email address',
+            passwordRequired: 'Password is required',
+            passwordInvalid: 'Password must be at least 8 characters long',
+            nameRequired: 'Name is required',
+            nameInvalid: 'Name must be at least 7 characters long',
+            priceRequired: 'Price is required',
+            categoryRequired: 'Category is required',
+          },
+        },
+        productCard: {
+          addToCart: 'Add to Cart',
         },
       },
-      navbar: {
-        items: {
-          profile: 'Profile',
-          products: 'Products',
-          categories: 'Categories',
+      sections: {
+        notFound: {
+          title: 'Not Found',
+          text: 'The page you’re looking for doesn’t exist.',
+          homeLink: 'Back Home',
         },
-      },
-      operations: {
-        add: 'Add Operation',
-        showMore: 'Show More',
-        randomOperationTitle: 'Clothes sale',
-        randomOperationDescription: 'Selling quality clothes at good prices',
-      },
-      forms: {
-        authForm: {
-          logIn: 'Log In',
-          signInButton: 'Sign In',
-          register: 'Register',
-          signUpButton: 'Sign up',
-          createAnAccount: 'Create an Account',
-          alreadyHaveAnAccount: 'Already have an account',
+        layout: {
+          signIn: 'Sign In',
+          navbar: {
+            profile: 'Profile',
+            products: 'Products',
+            categories: 'Categories',
+          },
         },
-        operationForm: {
-          createTitle: 'Operation create',
-          updateTitle: 'Operation update',
-          createButton: 'Create',
-          updateButton: 'Update',
+        categories: {
+          createTitle: 'Category create',
+          filter: {
+            sortDirection: {
+              asc: 'Ascending',
+              desc: 'Descending',
+            },
+            sortField: {
+              name: 'Name',
+              date: 'Publish Date',
+            },
+            inputs: {
+              name: 'Name',
+              sortField: 'Sort By',
+              sortDirection: 'Sort Direction',
+            },
+          },
         },
-        profileForm: {
-          title: 'Update Profile',
-          updateButton: 'Update',
+        products: {
+          createTitle: 'Product create',
+          filter: {
+            sortDirection: {
+              asc: 'Ascending',
+              desc: 'Descending',
+            },
+            sortField: {
+              name: 'Name',
+              date: 'Publish Date',
+            },
+            inputs: {
+              name: 'Name',
+              sortField: 'Sort By',
+              sortDirection: 'Sort Direction',
+              categories: 'Categories',
+            },
+          },
+        },
+        checkout: {
+          emptyText: 'Your Shopping Cart is Empty',
+          checkoutConfirm: 'Checkout',
         },
       },
     },
@@ -49,43 +113,105 @@ export const resources = {
   ru: {
     translation: {
       global: {
-        edit: 'Редактировать',
-        openModal: 'Открыть Модалку',
-        modalInput: {
-          placeholder: 'Текст Модалки...',
+        submit: 'Подтвердить',
+        create: 'Создать',
+      },
+      components: {
+        fileUpload: {
+          upload: 'Загрузить файл',
+        },
+        forms: {
+          authForm: {
+            signIn: 'Войти',
+            signUp: 'Зарегистрироваться',
+            email: 'Адрес электронной почты',
+            password: 'Пароль',
+            dontHaveAccount: 'Нет аккаунта? Зарегистрируйтесь',
+            alreadyHaveAccount: 'Уже есть аккаунт? Войдите',
+          },
+          categoryForm: {
+            name: 'Название',
+          },
+          productForm: {
+            name: 'Название',
+            category: 'Категория',
+            oldPrice: 'Старая цена',
+            price: 'Цена',
+            desc: 'Описание',
+          },
+          profileForm: {
+            title: 'Обновление профиля',
+            name: 'Имя',
+          },
+          validationMessages: {
+            emailRequired: 'Электронная почта обязательна',
+            emailInvalid: 'Неверный адрес электронной почты',
+            passwordRequired: 'Пароль обязателен',
+            passwordInvalid: 'Пароль должен содержать как минимум 8 символов',
+            nameRequired: 'Имя обязательно',
+            nameInvalid: 'Имя должно содержать как минимум 7 символов',
+            priceRequired: 'Цена обязательна',
+            categoryRequired: 'Категория обязательна',
+          },
+        },
+        productCard: {
+          addToCart: 'В корзину',
         },
       },
-      navbar: {
-        items: {
-          profile: 'Profile',
-          products: 'Products',
-          categories: 'Categories',
+      sections: {
+        notFound: {
+          title: 'Страница не найдена',
+          text: 'Страница, которую вы ищете, не существует.',
+          homeLink: 'На главную',
         },
-      },
-      operations: {
-        add: 'Add Operation',
-        showMore: 'Показать ещё',
-        randomOperationTitle: 'Продажа одежды',
-        randomOperationDescription: 'Продажа качественной одежды, низкие цены',
-      },
-      forms: {
-        authForm: {
-          logIn: 'Вход',
-          signInButton: 'Войти',
-          register: 'Регистрация',
-          signUpButton: 'Зарегистрироваться',
-          createAnAccount: 'Создать аккаунт',
-          alreadyHaveAnAccount: 'Уже есть аккаунт',
+        layout: {
+          signIn: 'Войти',
+          navbar: {
+            profile: 'Профиль',
+            products: 'Продукты',
+            categories: 'Категории',
+          },
         },
-        operationForm: {
-          createTitle: 'Operation create',
-          updateTitle: 'Operation update',
-          createButton: 'Create',
-          updateButton: 'Update',
+        categories: {
+          createTitle: 'Создание Категории',
+          filter: {
+            sortDirection: {
+              asc: 'По возрастанию',
+              desc: 'По убыванию',
+            },
+            sortField: {
+              name: 'Названию',
+              date: 'Дате публикации',
+            },
+            inputs: {
+              name: 'Название',
+              sortField: 'Сортировать по',
+              sortDirection: 'Направление сортировки',
+            },
+          },
         },
-        profileForm: {
-          title: 'Update Profile',
-          updateButton: 'Update',
+        products: {
+          createTitle: 'Создание Продукта',
+          filter: {
+            sortDirection: {
+              asc: 'По возрастанию',
+              desc: 'По убыванию',
+            },
+            sortField: {
+              name: 'Названию',
+              date: 'Дате публикации',
+            },
+            inputs: {
+              name: 'Название',
+              sortField: 'Сортировать по',
+              sortDirection: 'Направление сортировки',
+              categories: 'Категории',
+            },
+          },
+        },
+        checkout: {
+          emptyText: 'Ваша корзина пуста',
+          checkoutConfirm: 'Оформить заказ',
         },
       },
     },

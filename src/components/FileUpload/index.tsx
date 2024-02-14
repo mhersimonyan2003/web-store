@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button, IconButton } from '@mui/material';
 import DoneIcon from '@mui/icons-material/Done';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
@@ -12,6 +13,7 @@ interface Props {
 }
 
 export const FileUplaod = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
+  const { t } = useTranslation('translation', { keyPrefix: 'components.fileUpload' });
   const { setValue, ...inputProps } = props;
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -40,7 +42,7 @@ export const FileUplaod = React.forwardRef<HTMLInputElement, Props>((props, ref)
   return (
     <div className={s['file-upload']}>
       <Button variant="contained" component="label">
-        Upload File
+        {t('upload')}
         <input type="file" {...inputProps} ref={ref} hidden onChange={onChange} />
       </Button>
       {iconConditon && (

@@ -8,7 +8,7 @@ import { navbarItems } from './constants';
 import s from './index.module.scss';
 
 export const Navbar: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('translation', { keyPrefix: 'sections.layout.navbar' });
   const token = useAppSelector(tokenSelectors.get);
 
   return (
