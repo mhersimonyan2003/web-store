@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Typography } from '@mui/material';
-import EmptyShopIcon from '@/icons/empty-shop.png';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 import s from './index.module.scss';
 
@@ -10,7 +10,7 @@ export const CheckoutEmpty = () => {
 
   return (
     <div className={s['checkout-empty']}>
-      <img src={EmptyShopIcon} className={s['checkout-empty__icon']} />
+      <AddShoppingCartIcon className={s['checkout-empty__icon']} />
       <Typography variant="h6">{t('emptyText')}</Typography>
     </div>
   );

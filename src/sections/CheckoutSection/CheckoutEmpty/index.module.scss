@@ -1,10 +1,13 @@
+@import '@/styles/common';
+
 .checkout-empty {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 12px;
+  @include theme(color, text-01);
 }
 
 .checkout-empty__icon {
-  width: 125px;
+  font-size: 120px !important;
 }

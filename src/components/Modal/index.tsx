@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import CloseIcon from '@mui/icons-material/Close';
 
 import s from './index.module.scss';
-import { Typography } from '@mui/material';
+import { IconButton } from '@mui/material';
 
 interface Props {
   container?: HTMLElement;
@@ -41,9 +41,11 @@ export const Modal: React.FC<Props> = ({
       <div className={s.modal__backdrop} />
       <div className={s.modal__card}>
         <div className={s.modal__card__header}>
-          {title && <Typography variant="h5">{title}</Typography>}
+          {title && <div className={s.modal__card__header__title}>{title}</div>}
           <div className={s.modal__card__close} onClick={closeModal}>
-            <CloseIcon fontSize="large" />
+            <IconButton>
+              <CloseIcon fontSize="large" />
+            </IconButton>
           </div>
         </div>
         {children}
