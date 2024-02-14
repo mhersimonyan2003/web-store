@@ -1,18 +1,18 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Resolver, SubmitHandler, useForm } from 'react-hook-form';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-import { Button, Typography } from '@mui/material';
+import { Button } from '@mui/material';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useAppDispatch } from '@/store';
+import { profileThunks } from '@/store/profile';
+import { ServerError } from '@/types';
 import { Input } from '@/components';
+import { handleFormError } from '../constants';
 import validationSchema from './schema';
 import { ProfileFormData } from './types';
 
 import s from '../index.module.scss';
-import { profileThunks } from '@/store/profile';
-import { ServerError } from '@/types';
-import { handleFormError } from '../constants';
-import { useTranslation } from 'react-i18next';
 
 interface Props {
   data: ProfileFormData;
@@ -53,9 +53,7 @@ export const ProfileForm: React.FC<Props> = ({ data }) => {
         <div className={s.form__avatar}>
           <PersonOutlineIcon />
         </div>
-        <Typography component="h1" variant="h5">
-          {t('title')}
-        </Typography>
+        <div className={s.form__title}>{t('title')}</div>
         <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
           <div className={s['form__input-wrapper']}>
             <Input

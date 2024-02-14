@@ -9,9 +9,13 @@ export const authFormShape = {
 };
 
 export const productFormShape = {
-  // photo: yup.string(),
+  photo: yup.string(),
   name: yup.string().required(t('nameRequired')),
-  oldPrice: yup.number().transform((value) => (Number.isNaN(value) ? null : value)),
+  oldPrice: yup
+    .number()
+    .transform((value) => (Number.isNaN(value) ? null : value))
+    .nullable()
+    .moreThan(yup.ref('price'), t('oldPriceInvalid')),
   price: yup
     .number()
     .transform((value) => (Number.isNaN(value) ? null : value))

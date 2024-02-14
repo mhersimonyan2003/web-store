@@ -7,7 +7,7 @@
 }
 
 .select__error {
-  @include theme(background-color, text-error);
+  @include theme(color, text-error);
   font-size: 0.75rem;
   line-height: 1.66;
   letter-spacing: 0.03333em;

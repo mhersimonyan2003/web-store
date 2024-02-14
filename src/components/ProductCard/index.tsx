@@ -16,7 +16,7 @@ interface Props {
 export const ProductCard: React.FC<Props> = ({ editable, product, quantity }) => {
   const { name, photo, category, desc, oldPrice, price } = product;
 
-  const discount = oldPrice ? Math.round(((oldPrice - price) / oldPrice) * 100) : null;
+  const discount = oldPrice > price ? Math.round(((oldPrice - price) / oldPrice) * 100) : null;
 
   return (
     <div className={s.product__card}>
@@ -24,8 +24,12 @@ export const ProductCard: React.FC<Props> = ({ editable, product, quantity }) =>
       {editable && <ProductEdit product={product} />}
       <div className={s.product__card__price}>
         <div className={s['product__card__price-current']}>{formatNumber(price)} $</div>
-        {oldPrice && <div className={s['product__card__price-old']}>{formatNumber(oldPrice)} $</div>}
-        {discount !== null && <div className={s['product__card__price-discount']}>{discount}%</div>}
+        {discount !== null && (
+          <React.Fragment>
+            <div className={s['product__card__price-old']}>{formatNumber(oldPrice)} $</div>
+            <div className={s['product__card__price-discount']}>{discount}%</div>
+          </React.Fragment>
+        )}
       </div>
       <div className={s.product__card__header}>
         <div className={s.product__card__name}>{name}</div>
