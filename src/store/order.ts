@@ -40,9 +40,9 @@ const createOrderThunk =
   async (dispatch) => {
     try {
       await createOrder(orderBody);
-      dispatch(alertsActions.add({ severity: 'success', message: 'Order created successfully' }));
+      dispatch(alertsActions.add({ severity: 'success', message: 'orderCreateSuccess' }));
     } catch (err) {
-      dispatch(alertsActions.add({ severity: 'error', message: 'Order creation was unsuccessfull' }));
+      dispatch(alertsActions.add({ severity: 'error', message: 'orderCreateError' }));
     }
   };
 

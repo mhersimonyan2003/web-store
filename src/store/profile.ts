@@ -24,7 +24,7 @@ const updateProfileThunk =
   async (dispatch) => {
     const profile = await updateProfile(profileFormData);
     dispatch(profileActions.set(profile));
-    dispatch(alertsActions.add({ severity: 'success', message: 'Profile updated successfully' }));
+    dispatch(alertsActions.add({ severity: 'success', message: 'profileUpdateSuccess' }));
   };
 
 export const profileThunks = {

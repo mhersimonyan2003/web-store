@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { Resolver, SubmitHandler, useForm } from 'react-hook-form';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import { Button, Link, Typography } from '@mui/material';
+import { Button, Link } from '@mui/material';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { ServerError } from '@/types';
 import { useAppDispatch } from '@/store';
@@ -54,11 +54,7 @@ export const LoginForm: React.FC<Props> = ({ switchForm }) => {
         <div className={s.form__avatar}>
           <LockOutlinedIcon />
         </div>
-        <div className={s.form__title}>
-          <Typography component="h1" variant="h5">
-            {t('signIn')}
-          </Typography>
-        </div>
+        <h5 className={s.form__title}>{t('signIn')}</h5>
         <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
           <div className={s['form__input-wrapper']}>
             <Input

@@ -53,7 +53,7 @@ export const ProfileForm: React.FC<Props> = ({ data }) => {
         <div className={s.form__avatar}>
           <PersonOutlineIcon />
         </div>
-        <div className={s.form__title}>{t('title')}</div>
+        <h5 className={s.form__title}>{t('title')}</h5>
         <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
           <div className={s['form__input-wrapper']}>
             <Input

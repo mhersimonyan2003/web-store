@@ -109,6 +109,11 @@ export const resources = {
           checkoutConfirm: 'Checkout',
         },
       },
+      alerts: {
+        orderCreateSuccess: 'Order created successfully',
+        orderCreateError: 'Order creation was unsuccessfull',
+        profileUpdateSuccess: 'Profile updated successfully',
+      },
     },
   },
   ru: {
@@ -215,6 +220,11 @@ export const resources = {
           emptyText: 'Ваша корзина пуста',
           checkoutConfirm: 'Оформить заказ',
         },
+      },
+      alerts: {
+        orderCreateSuccess: 'Заказ успешно создан',
+        orderCreateError: 'Создание заказа не удалось',
+        profileUpdateSuccess: 'Профиль успешно обновлен',
       },
     },
   },

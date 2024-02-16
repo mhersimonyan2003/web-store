@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { Resolver, SubmitHandler, useForm } from 'react-hook-form';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
-import { Button, Link, Typography } from '@mui/material';
+import { Button, Link } from '@mui/material';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { ServerError } from '@/types';
 import { useAppDispatch } from '@/store';
@@ -54,9 +54,7 @@ export const RegisterForm: React.FC<Props> = ({ switchForm }) => {
         <div className={s.form__avatar}>
           <LockOpenIcon />
         </div>
-        <Typography component="h1" variant="h5">
-          {t('signUp')}
-        </Typography>
+        <h5 className={s.form__title}>{t('signUp')}</h5>
         <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
           <div className={s['form__input-wrapper']}>
             <Input
